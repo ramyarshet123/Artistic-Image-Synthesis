@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg'); /* Replace 'background.jpg' with your image path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            width: 80%;
+            background-color: rgba(204, 204, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .options {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .image {
+            flex: 1;
+            padding-left: 20px;
+            text-align: center;
+        }
+
+        .image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #C70039;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #D13D1D;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    
+        <div class="options">
+            <h2>Select a Category:</h2>
+            <form action="/" method="post">
+                <select name="category">
+                    <option value="Collective">All</option>
+                    <option value="Landscape">Landscape</option>
+                    <option value="Portrait">Portrait</option>
+                    <option value="Abstract">Abstract</option>
+                </select>
+                <input type="submit" value="Generate Image">
+            </form>
+        </div>
+        <div class="image">
+            {% if image %}
+                <img src="data:image/png;base64,{{ image }}" alt="Generated Image">
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
